@@ -1,0 +1,3 @@
+// entities export
+
+export default {};
