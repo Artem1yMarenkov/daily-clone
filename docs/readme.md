@@ -17,13 +17,11 @@
 2. Выставление оценок
 
 # Фреймворки и библиотеки
-Все библиотеки выбирались Ярославом Шишкиным под дикими веществами:
 - React
 - TypeScript
 - Effector
 - Atomic Router
 - MUI
 
-# Инструменты разработчика
-- Eslint / Prettier
-- JSON Server
+# Материалы
+Ссылка на дизайн макет: https://www.figma.com/file/ScsHW1FpSA6CvWsjwPSYpT/%D0%A8%D0%BA%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%94%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA?node-id=0%3A1&t=WvpMwSpjvJAclhqn-1
