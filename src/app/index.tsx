@@ -1,12 +1,17 @@
+import { Stack } from "@mui/system";
 import React, { FC } from "react";
-import { AuthForm } from "../widgets/AuthForm";
+import AuthPage from "../pages/Auth";
+import Header from "../widgets/Header";
 import "./index.scss";
 
 const App: FC = () => {
 	return (
-		<div>
-			<AuthForm />
-		</div>
+		<>
+			<Header />
+			<Stack flexDirection="row">
+				<AuthPage />
+			</Stack>
+		</>
 	);
 };
 
