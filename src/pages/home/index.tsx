@@ -1,6 +1,6 @@
 import React from "react";
 import { createRouteView } from "atomic-router-react";
-import { homeRoute } from "../../shared/routes";
+import { homeRoute } from "../../entities/routes";
 
 const HomePage = createRouteView({
 	route: homeRoute,

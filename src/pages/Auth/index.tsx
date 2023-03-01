@@ -3,7 +3,7 @@ import { Container, Grid } from "@mui/material";
 import { AuthForm } from "../../widgets/AuthForm";
 import SavedAccounts from "../../widgets/SavedAccounts";
 import { createRouteView } from "atomic-router-react";
-import { authRoute } from "../../shared/routes";
+import { authRoute } from "../../entities/routes";
 
 const AuthPage = createRouteView({
 	route: authRoute,

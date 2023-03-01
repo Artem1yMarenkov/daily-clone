@@ -3,7 +3,7 @@ import { createRoutesView, RouterProvider } from "atomic-router-react";
 import AuthPage from "../pages/auth";
 import router from "./routing";
 import HomePage from "../pages/home";
-import { authRoute, homeRoute } from "../shared/routes";
+import { authRoute, homeRoute } from "../entities/routes";
 import NotFoundPage from "../pages/errors/NotFound";
 import PageLayout from "./hocs/PageLayout";
 import "./index.scss";

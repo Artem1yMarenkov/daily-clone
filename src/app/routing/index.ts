@@ -1,12 +1,9 @@
 import { createHistoryRouter } from "atomic-router";
 import { createBrowserHistory } from "history";
-import { authRoute, homeRoute } from "../../shared/routes";
+import { routes } from "../../entities/routes";
 
 const router = createHistoryRouter({
-	routes: [
-		{ path: "/auth", route: authRoute },
-		{ path: "/", route: homeRoute }
-	]
+	routes
 });
 
 const history = createBrowserHistory();
