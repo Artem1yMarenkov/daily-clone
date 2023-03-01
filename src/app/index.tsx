@@ -1,17 +1,27 @@
-import { Stack } from "@mui/system";
 import React, { FC } from "react";
-import AuthPage from "../pages/Auth";
-import Header from "../widgets/Header";
+import { createRoutesView, RouterProvider } from "atomic-router-react";
+import AuthPage from "../pages/auth";
+import router from "./routing";
+import HomePage from "../pages/home";
+import { authRoute, homeRoute } from "../shared/routes";
+import NotFoundPage from "../pages/errors/NotFound";
+import PageLayout from "./hocs/PageLayout";
 import "./index.scss";
+
+const RoutesView = createRoutesView({
+	routes: [
+		{ route: homeRoute, view: HomePage, layout: PageLayout },
+		{ route: authRoute, view: AuthPage, layout: PageLayout }
+	],
+	otherwise: NotFoundPage
+});
+
 
 const App: FC = () => {
 	return (
-		<>
-			<Header />
-			<Stack flexDirection="row">
-				<AuthPage />
-			</Stack>
-		</>
+		<RouterProvider router={router}>
+			<RoutesView />
+		</RouterProvider>
 	);
 };
 

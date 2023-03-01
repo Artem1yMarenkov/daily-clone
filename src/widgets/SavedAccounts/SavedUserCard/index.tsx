@@ -43,5 +43,4 @@ const SavedUserCard: FC<IProps> = ({name, authData}) => {
 	);
 };
 
-
 export default SavedUserCard;

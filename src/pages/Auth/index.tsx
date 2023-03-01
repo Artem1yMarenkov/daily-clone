@@ -1,10 +1,13 @@
-import React, { FC } from "react";
+import React from "react";
 import { Container, Grid } from "@mui/material";
 import { AuthForm } from "../../widgets/AuthForm";
 import SavedAccounts from "../../widgets/SavedAccounts";
+import { createRouteView } from "atomic-router-react";
+import { authRoute } from "../../shared/routes";
 
-const AuthPage: FC = () => {
-	return (
+const AuthPage = createRouteView({
+	route: authRoute,
+	view: () => (
 		<Container>
 			<Grid 
 				container 
@@ -22,7 +25,7 @@ const AuthPage: FC = () => {
 				</Grid>
 			</Grid>
 		</Container>
-	);
-};
+	)
+});
 
 export default AuthPage;
