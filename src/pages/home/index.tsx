@@ -1,12 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 import { createRouteView } from "atomic-router-react";
 import { homeRoute } from "../../entities/routes";
+import { $auth } from "../../processes/auth";
+import { useStore } from "effector-react";
+
+const Page = () => {
+	const { authData } = useStore($auth);
+	
+	return (
+		<h1>Йоу, {authData?.login} 👋</h1>
+	);
+};
 
 const HomePage = createRouteView({
 	route: homeRoute,
-	view: () => (
-		<h1>Главная страница</h1>
-	)
+	view: Page
 });
 
 export default HomePage;

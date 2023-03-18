@@ -1,25 +1,17 @@
 import React, { FC } from "react";
 import { Grid, Paper, Typography} from "@mui/material";
 import SavedUserCard from "./SavedUserCard";
-
-interface IMockSavedUser {
-	name: string,
-	authData: {
-		login: string,
-		password: string
-	}
-}
-
-const mockSavedUser: IMockSavedUser = {
-	name: "Артём Маренков",
-	authData: {
-		login: "orvysegor@gmail.com",
-		password: "qwerty12345",
-	}
-};
+import { $cachedAccounts } from "../../features/cachedAcccounts";
+import { useStoreMap } from "effector-react";
 
 const SavedAccounts: FC = () => {
-	const savedUsers: IMockSavedUser[] = [mockSavedUser, mockSavedUser, mockSavedUser];
+	const cachedAccounts = useStoreMap($cachedAccounts, (state) => {
+		return Object.entries(state).map(([login, password]) => {
+			return {
+				login, password
+			};
+		});
+	});
 
 	return (
 		<Paper sx={{ padding: "20px" }}>
@@ -31,16 +23,13 @@ const SavedAccounts: FC = () => {
 				Сохраненные аккаунты
 			</Typography>
 			{
-				savedUsers.length != 0 &&
+				cachedAccounts.length != 0 &&
 				<Grid container spacing={2}>
 					{
-						savedUsers.map(({name, authData}) => {
+						cachedAccounts.map((userData) => {
 							return (
-								<Grid item xs={12} sm={6} md={6} key={name}>
-									<SavedUserCard 
-										name={name}
-										authData={authData}
-									/>
+								<Grid item xs={12} sm={6} md={6} key={userData.login}>
+									<SavedUserCard userData={userData}/>
 								</Grid>
 							);
 						})
@@ -48,7 +37,7 @@ const SavedAccounts: FC = () => {
 				</Grid>
 			}
 			{
-				savedUsers.length == 0 &&
+				cachedAccounts.length == 0 &&
 				<Typography 
 					lineHeight="24px" 
 					fontSize="16px"

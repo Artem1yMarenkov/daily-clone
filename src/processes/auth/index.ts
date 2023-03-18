@@ -1,4 +1,4 @@
-import { createStore, createEvent, sample } from "effector";
+import { createStore, createEvent } from "effector";
 import { authRoute, homeRoute } from "../../entities/routes";
 
 type AuthDataType = {
@@ -36,27 +36,26 @@ $auth.on(logout, () => {
 });
 
 
-sample({
-	clock: $auth.updates,
-	source: $auth,
-	fn: ({ isLogin }) => {
-		if (isLogin && authRoute.$isOpened) {
-			homeRoute.open();
-		}
+$auth.watch((state) => {
+	const { isLogin } = state;
+	const { pathname } = window.location;
 
-		if (!isLogin) {
-			authRoute.open();
-		}
-	},
+	if (isLogin && pathname.includes("/auth")) {
+		homeRoute.open();
+	}
+
+	if (!isLogin) {
+		authRoute.open();
+	}
 });
 
-// Mock Authentication
-const unwatchAuthStore = $auth.watch(() => {
-	setTimeout(() => {
-		login({
-			login: "Артём Маренков",
-			password: "qwerty123"
-		});
-		unwatchAuthStore();
-	}, 1000);
-});
+// // Mock Authentication
+// const unwatchAuthStore = $auth.watch(() => {
+// 	setTimeout(() => {
+// 		login({
+// 			login: "Артём Маренков",
+// 			password: "qwerty123"
+// 		});
+// 		unwatchAuthStore();
+// 	}, 1000);
+// });

@@ -5,17 +5,15 @@ import { Stack } from "@mui/system";
 import { login } from "../../../processes/auth";
 
 interface IProps {
-	name: string;
-	authData: {
+	userData: {
 		login: string,
 		password: string
 	}
 }
 
-const SavedUserCard: FC<IProps> = ({name, authData}) => {
-	
+const SavedUserCard: FC<IProps> = ({userData}) => {
 	const handleLogin = () => {
-		login(authData);
+		login(userData);
 	};
 
 	return (
@@ -27,10 +25,10 @@ const SavedUserCard: FC<IProps> = ({name, authData}) => {
 		}}>
 			<Stack flexDirection="row" gap="20px">
 				<Avatar sx={{ bgcolor: "orange" }}>
-					{name[0]}
+					{userData.login[0]}
 				</Avatar>
 				<Stack alignItems="flex-start" gap="6">
-					<Typography fontSize="16px" fontWeight="600">{name}</Typography>
+					<Typography fontSize="16px" fontWeight="600">{userData.login}</Typography>
 					<Link color="#0E6AD6">
 						<Stack flexDirection="row" gap="6px">
 							<Typography fontSize="14px" onClick={handleLogin}>Войти</Typography>
