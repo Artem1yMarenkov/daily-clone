@@ -11,9 +11,6 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@filledout/core": "^0.0.9",
-    "@filledout/react": "^0.0.8",
-    "@filledout/yup": "^0.0.4",
     "@mui/material": "^5.11.7",
     "atomic-router": "^0.8.0",
     "atomic-router-react": "^0.8.1",
