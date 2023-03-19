@@ -1,4 +1,5 @@
 import { createStore, createEvent } from "effector";
+import router from "../../app/routing";
 import { authRoute, homeRoute } from "../../entities/routes";
 
 type AuthDataType = {
@@ -49,13 +50,21 @@ $auth.watch((state) => {
 	}
 });
 
-// // Mock Authentication
-// const unwatchAuthStore = $auth.watch(() => {
-// 	setTimeout(() => {
-// 		login({
-// 			login: "Артём Маренков",
-// 			password: "qwerty123"
-// 		});
-// 		unwatchAuthStore();
-// 	}, 1000);
-// });
+router.$path.watch((path) => {
+	const { isLogin } = $auth.getState();
+
+	if (!isLogin) {
+		authRoute.open();
+	}
+});
+
+// Mock Authentication
+const unwatchAuthStore = $auth.watch(() => {
+	setTimeout(() => {
+		login({
+			login: "Артём Маренков",
+			password: "qwerty123"
+		});
+		unwatchAuthStore();
+	}, 100);
+});
