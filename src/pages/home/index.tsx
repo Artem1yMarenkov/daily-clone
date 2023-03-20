@@ -1,14 +1,20 @@
 import React, { FC } from "react";
 import { createRouteView } from "atomic-router-react";
-import { homeRoute } from "../../entities/routes";
+import { chatRoute, homeRoute } from "../../entities/routes";
 import { $auth } from "../../processes/auth";
 import { useStore } from "effector-react";
+import { Button, Stack } from "@mui/material";
 
 const Page = () => {
 	const { authData } = useStore($auth);
 	
 	return (
-		<h1>Йоу, {authData?.login} 👋</h1>
+		<>
+			<Stack>
+				<h1>Йоу, {authData?.login} 👋</h1>
+				<Button onClick={() => chatRoute.open()} variant="outlined">Сообщения</Button>
+			</Stack>
+		</>
 	);
 };
 
