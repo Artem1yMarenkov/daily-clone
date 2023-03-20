@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { TabPanelProps } from "../../types";
 import Stack from "@mui/material/Stack/Stack";
-import TextField from "@mui/material/TextField/TextField";
 
 
 export function TabPanel(props: TabPanelProps) {

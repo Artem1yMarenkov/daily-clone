@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { createRouteView } from "atomic-router-react";
-import { chatRoute, homeRoute } from "../../entities/routes";
-import { $auth } from "../../processes/auth";
+import { chatRoute, homeRoute, scheludeRoute } from "../../../../entities/routes";
+import { $auth } from "../../../../processes/auth";
 import { useStore } from "effector-react";
 import { Button, Stack } from "@mui/material";
 
@@ -13,6 +13,7 @@ const Page = () => {
 			<Stack>
 				<h1>Йоу, {authData?.login} 👋</h1>
 				<Button onClick={() => chatRoute.open()} variant="outlined">Сообщения</Button>
+				<Button onClick={() => scheludeRoute.open()} variant="outlined">Расписание</Button>
 			</Stack>
 		</>
 	);

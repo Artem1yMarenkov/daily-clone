@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.7",
+    "@mui/x-data-grid": "^6.0.2",
     "atomic-router": "^0.8.0",
     "atomic-router-react": "^0.8.1",
     "effector": "^22.5.2",

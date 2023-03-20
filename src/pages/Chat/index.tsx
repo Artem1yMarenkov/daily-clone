@@ -64,48 +64,48 @@ const Chat = () => {
 					aria-label="Vertical tabs example"
 					sx={{ borderRight: 1, borderColor: "divider", width: "400px" }}
 				>
-					<Tab disableRipple sx={{justifyContent: "flex-start", gap: "10px"}} icon={
-						<>
-							<StyledBadge
-              
-								overlap="circular"
-								anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-								variant="dot"
-							>
-								<Avatar alt="Л" src="/static/images/avatar/1.jpg" />
-							</StyledBadge>
-						</>
-					} iconPosition="start" label="Лапенко Иван" {...a11yProps(0)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px" }} icon={
-						<>
-							<Avatar alt="Я" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="Ярослав Менторович" {...a11yProps(1)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px"}} icon={
-						<>
-							<Avatar alt="Я" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="Ярослав Ресторанович" {...a11yProps(2)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px"}}icon={
-						<>
-							<Avatar alt="С" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="Снуп дог" {...a11yProps(3)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px"}} icon={
-						<>
-							<Avatar alt="М" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="Магнум Опус" {...a11yProps(4)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px"}} icon={
-						<>
-							<Avatar alt="Р" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="рамзес666" {...a11yProps(5)} />
-					<Tab sx={{justifyContent: "flex-start", gap: "10px"}} icon={
-						<>
-							<Avatar alt="С" src="/static/images/avatar/1.jpg" />
-						</>
-					} iconPosition="start" label="Светлана Павловна" {...a11yProps(6)} />
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Л" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="Лапенко Иван" {...a11yProps(0)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px" }} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(1)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(2)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(2)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(2)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(2)} 
+					/>
+					<Tab 
+						sx={{justifyContent: "flex-start", gap: "10px"}} 
+						icon={<Avatar alt="Я" src="/static/images/avatar/1.jpg" />} 
+						iconPosition="start" 
+						label="lorem ipsium" {...a11yProps(2)} 
+					/>
 				</Tabs>
 				<TabPanel value={value} index={0}>
 					<Typography variant='h5'>Лапенко Иван</Typography>
@@ -117,7 +117,13 @@ const Chat = () => {
 					</Stack>
 				</TabPanel>
 				<TabPanel value={value} index={1}>
-        Item Two
+					<Typography variant='h5'>Лапенко Иван</Typography>
+					<Stack gap={1} width='100%'>
+						<Message fromUser={true} messageText='fsdfds' />
+						<Message fromUser={false} messageText='ааывавыавы' />
+						<Message fromUser={false} messageText='fsdfds' />
+						<TextField label="Введите ваше сообщение"  sx={{marginTop: 2}} />
+					</Stack>
 				</TabPanel>
 				<TabPanel value={value} index={2}>
         Item Three
@@ -144,4 +150,4 @@ const chatPage = createRouteView({
 	view: Chat
 });
 
-export default Chat;
+export default chatPage;
