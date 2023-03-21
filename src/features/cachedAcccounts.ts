@@ -1,4 +1,5 @@
-import { sample, createEffect, createStore, createEvent } from "effector";
+import { sample, createEffect, createStore } from "effector";
+import { authRoute } from "../entities/routes";
 import { $auth, login } from "../processes/auth";
 
 interface AuthDataType {
@@ -11,8 +12,6 @@ interface CachedUsersStoreType {
 }
 
 export const $cachedAccounts = createStore<CachedUsersStoreType>({} as CachedUsersStoreType);
-
-const setCachedAccountsEvent = createEvent<CachedUsersStoreType>();
 
 const cacheAccountFx = createEffect<AuthDataType | null, CachedUsersStoreType, void>((authData) => {
 	if (authData == null) {
@@ -32,23 +31,28 @@ const cacheAccountFx = createEffect<AuthDataType | null, CachedUsersStoreType, v
 	return cachedUsers as CachedUsersStoreType;
 });
 
-$cachedAccounts.on(cacheAccountFx, (payload) => payload);
+const syncAccountsFx = createEffect(() => {
+	const accounts: CachedUsersStoreType = JSON.parse(String(localStorage.getItem("cachedUsers"))) || {};
 
-const unwatchCachedAccounts = $cachedAccounts.watch(() => {
-	setTimeout(() => {
-		const cachedUsers: CachedUsersStoreType = JSON.parse(String(localStorage.getItem("cachedUsers"))) || {};
-
-		setCachedAccountsEvent(cachedUsers);
-		unwatchCachedAccounts();
-	}, 0);
+	return accounts;
 });
 
-$cachedAccounts.on(setCachedAccountsEvent, (state, payload) => payload);
+$cachedAccounts.on(syncAccountsFx.doneData, (_, payload) => {
+	return payload;
+});
 
 // Save new account in local storage after login
 sample({
 	clock: login,
 	source: $auth,
-	fn: (state) => (state.authData),
+	fn: (state) => state.authData,
 	target: cacheAccountFx
 });
+
+// Get cached accounts from localStorage on authRote open
+sample({
+	clock: authRoute.opened,
+	target: syncAccountsFx
+});
+
+syncAccountsFx();

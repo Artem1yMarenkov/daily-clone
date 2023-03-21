@@ -59,12 +59,12 @@ router.$path.watch((path) => {
 });
 
 // Mock Authentication
-const unwatchAuthStore = $auth.watch(() => {
-	setTimeout(() => {
-		login({
-			login: "Артём Маренков",
-			password: "qwerty123"
-		});
-		unwatchAuthStore();
-	}, 100);
-});
+// const unwatchAuthStore = $auth.watch(() => {
+// 	setTimeout(() => {
+// 		login({
+// 			login: "Артём Маренков",
+// 			password: "qwerty123"
+// 		});
+// 		unwatchAuthStore();
+// 	}, 100);
+// });

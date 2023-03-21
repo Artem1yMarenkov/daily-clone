@@ -108,7 +108,7 @@ const Chat = () => {
 					/>
 				</Tabs>
 				<TabPanel value={value} index={0}>
-					<Typography variant='h5'>Лапенко Иван</Typography>
+					<Typography variant='h5' fontWeight="500">Лапенко Иван</Typography>
 					<Stack gap={1} width='100%'>
 						<Message fromUser={true} messageText='fsdfds' />
 						<Message fromUser={false} messageText='ааывавыавы' />

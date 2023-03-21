@@ -43,6 +43,7 @@ export const AuthForm: FC = () => {
 						label="Пароль"
 						error={!!errors?.password}
 						helperText={errors?.password ? "Заполните поле" : ""}
+						type="password"
 						{...register("password", { required: true })}
 					/>
 					<Button variant="contained" type="submit">Войти</Button>
